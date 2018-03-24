@@ -1,0 +1,11 @@
+
+- name: install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+- name: Config file mackup
+  copy:
+    src: files/mackup-config
+    dest: ~/.mackup.cfg
+
+- name: run mackup
+  shell: mackup restore -f

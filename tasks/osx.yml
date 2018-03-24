@@ -1,0 +1,30 @@
+---
+
+- name: Copy osx file
+  template:
+    src: template/osx.j2
+    dest: ~/.macos
+    mode: 0777
+
+# TODO: Use sudo once .osx can be run via root with no user interaction.
+- name: Run .osx dotfiles.
+  shell: "~/.macos --no-restart"
+  changed_when: false
+
+# Dock - still not work
+# - name: Remove all crap from Dock
+#   shell: dockutil --remove '{{ item }}'
+#   ignore_errors: true
+#   with_items: dockitems_to_remove
+#   tags: ["dock"]
+
+
+# - name: Check if items in dock exist
+#   shell: dockutil --find '{{ item.name }}' || dockutil --add '{{ item.path }}'
+#   with_items: dockitems_to_persist
+#   tags: ["dock"]
+
+# - name: Fix order
+#   shell: dockutil --move '{{ item.name }}' --position {{ item.pos }}
+#   with_items: dockitems_to_persist
+#   tags: ["dock"]

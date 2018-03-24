@@ -1,0 +1,7 @@
+# fonts module
+- name: Copy fonts
+  copy:
+    src: files/fonts/
+    dest: ~/Library/Fonts/
+
+

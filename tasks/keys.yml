@@ -1,0 +1,12 @@
+---
+- name: Copy private key
+  copy:
+    src: "{{ private_key }}"
+    dest: ~/.ssh/
+    mode: 0600
+
+- name: Copy public key
+  copy:
+    src: "{{ public_key }}"
+    dest: ~/.ssh/
+    mode: 0600
